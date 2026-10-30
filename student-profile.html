@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Directory | SIEM Nashik</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .directory {
+            max-width: 1200px;
+            margin: 25px auto;
+            padding: 20px;
+            overflow-x: auto;
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 450px;
+            padding: 12px;
+            margin: 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .student-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        .student-table th,
+        .student-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .student-table th {
+            background: #174a7e;
+            color: white;
+        }
+
+        .student-table tr:nth-child(even) {
+            background: #f2f6fa;
+        }
+
+        .student-table tr:hover {
+            background: #e5effa;
+        }
+
+        .view-profile {
+            display: inline-block;
+            padding: 7px 12px;
+            background: #174a7e;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .view-profile:hover {
+            background: #0e3155;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 15px 10px 15px 0;
+        }
+    </style>
+</head>
+
+<body data-role="student">
+
+<header>
+    <h1>Sandip Foundation</h1>
+    <p>College Students Services and Information Portal</p>
+    <h2>Student Directory</h2>
+</header>
+
+<main class="directory">
+    <h2>TYBCA Student List</h2>
+    <p>Search students by roll number, PRN, name, or mobile number.</p>
+
+    <input
+        type="text"
+        id="searchInput"
+        class="search-box"
+        placeholder="Search students..."
+        oninput="searchStudents()"
+    >
+
+    <p id="studentCount">Students Found: 43</p>
+
+    <table class="student-table">
+        <thead>
+            <tr>
+                <th>Roll No.</th>
+                <th>PRN</th>
+                <th>Student Name</th>
+                <th>Mobile No.</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="studentTable"></tbody>
+    </table>
+
+    <a class="back-link" href="student-dashboard.html">
+        Back to Dashboard
+    </a>
+    <button type="button" onclick="logout()">Logout</button>
+</main>
+
+<script src="script.js"></script>
+
+<script>
+const students = [
+    ["1", "451202401", "RAKSHA HIMMAT CHAUDHARI", "9209447590"],
+    ["2", "451202402", "SANSKRUTI SUNIL SOHRA", "9699354972"],
+    ["3", "451202403", "GAURI VISHWASRAO WANKHEDE", "8446212715"],
+    ["4", "451202404", "NILAM ATUL CHAUDHARI", "9699087745"],
+    ["5", "451202405", "NIKITA KRUSHNA JADHAV", "7757803061"],
+    ["6", "451202406", "GAURAV RAMESH NIRGUDE", "9923889837"],
+    ["7", "451202407", "MANISH SUNIL GAIKWAD", "7066100647"],
+    ["8", "451202408", "GAURAV VIJAY AHER", "8857951617"],
+    ["9", "451202409", "ADITYA SANDEEP MALI", "8329162656"],
+    ["10", "451202410", "VINOD DIPAK HANDE", "9921522942"],
+    ["11", "451202411", "DEVESH PRAVIN PATIL", "7249519066"],
+    ["12", "451202412", "RUTUJA DNYANESHWAR DUSANE", "7276563943"],
+    ["13", "451202413", "VIJAYALAXMI KAILAS KHOKALE", "9172129168"],
+    ["14", "451202414", "DHANARAJ BHASKAR MALI", "7821019271"],
+    ["15", "451202415", "APEKSHA TUKARAM SAWANT", "8483031085"],
+    ["16", "451202416", "AARATI NAMDEV SAWANT", "8446657432"],
+    ["17", "451202418", "PAVAN BABU NIRGUTLE", "7498780867"],
+    ["18", "451202419", "AYUSHKUMAR VIJAYSHANKAR RAWAT", "7249236121"],
+    ["19", "451202420", "DIPAK REVAJI BHAVARE", "8766642944"],
+    ["20", "451202422", "BHUMIKA LOTAN PATIL", "8799105228"],
+    ["21", "451202424", "OM KISHOR PARMAR", "8975702903"],
+    ["22", "451202425", "ARJUN RAMDAS NIKAM", "9552889315"],
+    ["23", "451202427", "HABIBULLA HANIF SHAIKH", "7559439053"],
+    ["24", "451202428", "DHANASHRI SANDIP WARKE", "8767525507"],
+    ["25", "451202429", "DATTATRAY ARJUN FOKANE", "8329724806"],
+    ["26", "451202430", "MAYURI SHARAD WARULE", "8668542052"],
+    ["27", "451202431", "VIPUL GOKUL BADAME", "9156472081"],
+    ["28", "451202432", "PRATIKSHA EKNATH SHELKE", "9850304962"],
+    ["29", "451202433", "SURAJ RAJENDRA NIKUMBH", "9075881313"],
+    ["30", "451202434", "JYOTI MADHUKAR KURANE", "9373179358"],
+    ["31", "451202435", "SOHAM PRADIP NAWALE", "7020928120"],
+    ["32", "451202436", "CHETNA BHATU KULTHE", "9699316099"],
+    ["33", "451202437", "MEGHRAJ SHANKAR GAIKWAD", "7020088197"],
+    ["34", "451202438", "SAMARTH SUNIL PATIL", "7666951006"],
+    ["35", "451202439", "SHRADDHEY SATISH CHAUDHARI", "9545256771"],
+    ["36", "451202440", "DHIRAJ RAJENDRA PATIL", "8799855568"],
+    ["37", "451202441", "LOKESH PRADIP PATIL", "9834872443"],
+    ["38", "451202442", "ANUSHKA GOKUL GHARATE", "9158526253"],
+    ["39", "451202443", "VIKAS RAJENDRA CHITTE", "9699297488"],
+    ["40", "451202448", "KOMAL GORAKHNATH NERPAGAR", "8482960728"],
+    ["41", "451202449", "VINAYAK BHUPAL KODILKAR", "9322300402"],
+    ["42", "451202450", "VISHAL SANTOSH YAMPURE", "7666851081"],
+    ["43", "451202452", "VISHAL SEWALAL YADAV", "8482929303"]
+];
+
+function displayStudents(list) {
+    const table = document.getElementById("studentTable");
+    table.innerHTML = "";
+
+    list.forEach(student => {
+        const row = document.createElement("tr");
+
+        student.forEach(value => {
+            const cell = document.createElement("td");
+            cell.textContent = value;
+            row.appendChild(cell);
+        });
+
+        const actionCell = document.createElement("td");
+        const profileLink = document.createElement("a");
+
+        profileLink.textContent = "View Profile";
+        profileLink.className = "view-profile";
+        profileLink.href =
+            "my-profile.html?prn=" +
+            encodeURIComponent(student[1]);
+
+        actionCell.appendChild(profileLink);
+        row.appendChild(actionCell);
+        table.appendChild(row);
+    });
+
+    document.getElementById("studentCount").textContent =
+        "Students Found: " + list.length;
+}
+
+function searchStudents() {
+    const query = document.getElementById("searchInput")
+        .value.toLowerCase().trim();
+
+    const filtered = students.filter(student =>
+        student.some(value =>
+            String(value).toLowerCase().includes(query)
+        )
+    );
+
+    displayStudents(filtered);
+}
+
+displayStudents(students);
+</script>
+
+</body>
+</html>

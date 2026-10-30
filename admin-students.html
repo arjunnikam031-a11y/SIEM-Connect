@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIEM Nashik | Student Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-role="admin">
+
+    <header>
+        <h1>Sandip Foundation</h1>
+        <p>Sandip Institute of Engineering and Management, Nashik</p>
+        <h2>Student Management</h2>
+    </header>
+
+    <main class="container">
+
+        <section class="card">
+            <h2>Registered Students</h2>
+            <p>View students registered on the portal.</p>
+
+            <label for="searchStudent">Search Student</label>
+            <input type="text" id="searchStudent"
+                   placeholder="Search by name, roll number or PRN">
+
+            <p id="studentCount"></p>
+        </section>
+
+        <section class="card">
+            <h2>Student List</h2>
+            <div id="studentList"></div>
+        </section>
+
+        <section class="card">
+            <a href="admin-dashboard.html">Back to Admin Dashboard</a>
+            <br><br>
+            <button type="button" onclick="logout()">Logout</button>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+    <script src="admin-students.js"></script>
+
+</body>
+</html>

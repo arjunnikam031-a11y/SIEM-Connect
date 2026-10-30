@@ -1,0 +1,304 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f5fb;
+    color: #24344d;
+}
+
+header {
+    background: #173f73;
+    color: white;
+    text-align: center;
+    padding: 35px 15px;
+}
+
+header h1 {
+    margin: 0 0 10px;
+    font-size: 32px;
+}
+
+header p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
+    flex-wrap: wrap;
+    padding: 50px 20px;
+}
+
+.card {
+    background: white;
+    width: 300px;
+    padding: 30px;
+    text-align: center;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px #00000015;
+}
+
+.card h2 {
+    color: #173f73;
+}
+
+.card a {
+    display: inline-block;
+    background: #2463a6;
+    color: white;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 7px;
+    margin-top: 12px;
+}
+
+.card a:hover {
+    background: #102f57;
+}
+
+@media (max-width: 650px) {
+    .container {
+        padding: 25px 15px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+/* Login form styling */
+
+.card form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.card label {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.card input {
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 15px;
+    width: 100%;
+}
+
+.card input:focus {
+    outline: 2px solid #2463a6;
+    border-color: transparent;
+}
+
+.card button {
+    background: #2463a6;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.card button:hover {
+    background: #102f57;
+}
+
+.card p a {
+    color: #2463a6;
+}
+
+/* Study materials page layout */
+#uploadSection,
+#uploadSection + .card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 20px;
+    float: none;
+}
+
+#materialForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#materialForm input {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+#materialFile {
+    font-size: 14px;
+}
+
+#materialsList {
+    width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+#materialsList .card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 12px 0;
+}
+
+/* Clear and readable timetable */
+.timetable-card {
+    width: 100%;
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.timetable-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.timetable-table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+    font-size: 17px;
+}
+
+.timetable-table th,
+.timetable-table td {
+    border: 1px solid #cccccc;
+    padding: 18px 14px;
+    text-align: center;
+    min-width: 90px;
+}
+
+.timetable-table th {
+    background-color: #164e83;
+    color: white;
+    font-size: 17px;
+}
+
+.timetable-table td:first-child {
+    font-weight: bold;
+    background-color: #eaf2fa;
+}
+
+.timetable-table tr:nth-child(even) td:not(:first-child) {
+    background-color: #f5f8fc;
+}
+
+@media (max-width: 600px) {
+    .timetable-card {
+        padding: 12px;
+    }
+
+    .timetable-table {
+        font-size: 15px;
+    }
+
+    .timetable-table th,
+    .timetable-table td {
+        padding: 14px 10px;
+    }
+}
+
+/* Fix Student Complaint Status Layout */
+
+#complaintStatusList {
+    width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+#complaintStatusList .card {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+    margin: 15px 0;
+    text-align: left;
+    background: #f8fbff;
+    border: 1px solid #dbe5f0;
+    box-shadow: none;
+}
+
+#complaintStatusList .card p {
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.container:has(#complaintStatusList) > .card {
+    width: 100%;
+    max-width: 700px;
+    min-width: 0;
+}
+
+/* Fix Box Layout Across Entire Website */
+
+.container,
+.card {
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+.card {
+    overflow-wrap: anywhere;
+    max-width: 100%;
+}
+
+.card input,
+.card select,
+.card textarea,
+.card button {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.card input,
+.card select,
+.card textarea {
+    width: 100%;
+    min-width: 0;
+}
+
+.card a {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.card img,
+.card iframe {
+    max-width: 100%;
+}
+
+@media (max-width: 650px) {
+    .container {
+        width: 100%;
+        padding: 20px 12px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+    }
+}

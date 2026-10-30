@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIEM Nashik | Student Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Sandip Foundation</h1>
+        <p>Sandip Institute of Engineering and Management, Nashik</p>
+        <h2>Student Registration</h2>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>Create Student Account</h2>
+            <p>Enter your details to register for the student portal.</p>
+
+            <form id="registerForm">
+
+                <label for="studentName">Full Name</label>
+                <input type="text" id="studentName" required>
+
+                <label for="rollNumber">Roll Number</label>
+                <input type="number" id="rollNumber"
+                       min="1" max="43" required>
+
+                <label for="studentPRN">PRN Number</label>
+                <input type="text" id="studentPRN" required>
+
+                <label for="studentMobile">Mobile Number</label>
+                <input type="tel" id="studentMobile"
+                       pattern="[0-9]{10}" required>
+
+                <label for="studentPassword">Create Password</label>
+                <input type="password" id="studentPassword"
+                       minlength="6" required>
+
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword"
+                       minlength="6" required>
+
+                <button type="submit">Create Account</button>
+                <p id="registerMessage" role="status"></p>
+
+            </form>
+
+            <p>
+                Already registered?
+                <a href="student-login.html">Student Login</a>
+            </p>
+        </section>
+    </main>
+
+    <script src="student-register.js"></script>
+</body>
+</html>

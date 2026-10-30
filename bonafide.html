@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Bonafide Certificate | SIEM Nashik</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .application-container {
+            max-width: 750px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .application-card {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .application-card h2 {
+            text-align: center;
+            color: #174a7e;
+        }
+
+        .application-card .intro {
+            text-align: center;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .application-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+        }
+
+        #applicationMessage {
+            margin-top: 18px;
+            font-weight: bold;
+            color: #176b3a;
+        }
+
+        .note {
+            background: #eef5ff;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 550px) {
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+
+<body data-role="student">
+
+<header>
+    <h1>Sandip Foundation</h1>
+    <p>College Students Services and Information Portal</p>
+</header>
+
+<main class="application-container">
+    <section class="application-card">
+
+        <h2>Bonafide Certificate Application</h2>
+
+        <p class="intro">
+            Fill in the form below to apply for a bonafide certificate.
+        </p>
+
+        <p class="note">
+            Please enter your correct academic details.
+            Your application will be marked as Pending in this demo.
+        </p>
+
+        <form id="bonafideForm">
+
+            <div class="form-group">
+                <label for="studentName">Full Name *</label>
+                <input type="text" id="studentName"
+                    placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="rollNumber">Roll Number *</label>
+                    <input type="text" id="rollNumber"
+                        placeholder="Enter roll number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="prn">PRN Number *</label>
+                    <input type="text" id="prn"
+                        placeholder="Enter PRN number" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="course">Course *</label>
+                    <select id="course" required>
+                        <option value="">Select course</option>
+                        <option value="BCA">BCA</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="year">Academic Year *</label>
+                    <select id="year" required>
+                        <option value="">Select year</option>
+                        <option value="FYBCA">FYBCA</option>
+                        <option value="SYBCA">SYBCA</option>
+                        <option value="TYBCA">TYBCA</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="purpose">Purpose of Certificate *</label>
+                <select id="purpose" required>
+                    <option value="">Select purpose</option>
+                    <option value="Scholarship">Scholarship</option>
+                    <option value="Education Loan">Education Loan</option>
+                    <option value="Bank Account">Bank Account</option>
+                    <option value="Travel Concession">Travel Concession</option>
+                    <option value="Government Scheme">Government Scheme</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="reason">Reason for Application *</label>
+                <textarea id="reason" rows="4"
+                    placeholder="Explain why you need the certificate"
+                    required></textarea>
+            </div>
+
+            <div class="application-actions">
+                <button type="submit">Submit Application</button>
+                <a href="student-dashboard.html">Back to Dashboard</a>
+            </div>
+
+        </form>
+
+        <p id="applicationMessage" aria-live="polite"></p>
+
+    </section>
+</main>
+
+<script src="script.js"></script>
+
+<script>
+    document.getElementById("bonafideForm").addEventListener(
+        "submit",
+        function(event) {
+            event.preventDefault();
+
+            const application = {
+                applicationId: "BON" + Date.now(),
+                studentName: document.getElementById("studentName").value.trim(),
+                rollNumber: document.getElementById("rollNumber").value.trim(),
+                prn: document.getElementById("prn").value.trim(),
+                course: document.getElementById("course").value,
+                year: document.getElementById("year").value,
+                purpose: document.getElementById("purpose").value,
+                reason: document.getElementById("reason").value.trim(),
+                status: "Pending",
+                submittedAt: new Date().toLocaleString()
+            };
+
+            const applications = JSON.parse(
+                localStorage.getItem("bonafideApplications") || "[]"
+            );
+
+            applications.push(application);
+
+            localStorage.setItem(
+                "bonafideApplications",
+                JSON.stringify(applications)
+            );
+
+            document.getElementById("applicationMessage").textContent =
+                "Application submitted successfully! Application ID: " +
+                application.applicationId + " | Status: Pending";
+
+            this.reset();
+        }
+    );
+</script>
+
+</body>
+</html>

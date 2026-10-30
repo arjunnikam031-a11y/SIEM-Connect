@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIEM Nashik | Student Complaints</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Sandip Foundation</h1>
+        <p>Sandip Institute of Engineering and Management, Nashik</p>
+        <h2>Student Complaint Section</h2>
+    </header>
+
+    <main class="container">
+        <section class="card" id="complaintFormSection">
+            <h2>Submit a Complaint</h2>
+
+            <form id="complaintForm">
+                <label for="studentName">Student Name</label>
+                <input type="text" id="studentName" required>
+
+                <label for="complaintSubject">Complaint Subject</label>
+                <input type="text" id="complaintSubject" required>
+
+                <label for="complaintDetails">Complaint Details</label>
+                <textarea id="complaintDetails" rows="5" required></textarea>
+
+                <button type="submit">Submit Complaint</button>
+                <p id="complaintMessage" role="status"></p>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>Complaints List</h2>
+            <div id="complaintsList">
+                <p>No complaints submitted yet.</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <a href="student-dashboard.html">Student Dashboard</a>
+            <br><br>
+            <a href="admin-dashboard.html">Admin Dashboard</a>
+            <br><br>
+            <button type="button" onclick="logout()">Logout</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        const role = sessionStorage.getItem("portalRole");
+        const formSection =
+            document.getElementById("complaintFormSection");
+        const form = document.getElementById("complaintForm");
+        const list = document.getElementById("complaintsList");
+        const message = document.getElementById("complaintMessage");
+
+        const complaints = [];
+
+        if (role !== "student" && role !== "admin") {
+            window.location.replace("index.html");
+        } else if (role === "admin") {
+            formSection.hidden = true;
+        }
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            if (role !== "student") return;
+
+            complaints.push({
+                name: document.getElementById("studentName").value.trim(),
+                subject: document.getElementById("complaintSubject").value.trim(),
+                details: document.getElementById("complaintDetails").value.trim()
+            });
+
+            renderComplaints();
+            form.reset();
+            message.textContent = "Complaint submitted successfully.";
+        });
+
+        function renderComplaints() {
+            list.replaceChildren();
+
+            if (complaints.length === 0) {
+                list.textContent = "No complaints submitted yet.";
+                return;
+            }
+
+            complaints.forEach(function (complaint, index) {
+                const card = document.createElement("div");
+                card.className = "card";
+
+                const heading = document.createElement("h3");
+                heading.textContent = complaint.subject;
+
+                const name = document.createElement("p");
+                name.textContent = "Student: " + complaint.name;
+
+                const details = document.createElement("p");
+                details.textContent = complaint.details;
+
+                card.append(heading, name, details);
+
+                if (role === "admin") {
+                    const removeButton = document.createElement("button");
+                    removeButton.textContent = "Remove";
+                    removeButton.onclick = function () {
+                        complaints.splice(index, 1);
+                        renderComplaints();
+                    };
+                    card.appendChild(removeButton);
+                }
+
+                list.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIEM Nashik | Admin Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Sandip Foundation</h1>
+        <p>Sandip Institute of Engineering and Management,Nashik</p>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>Administrator Sign In</h2>
+
+            <form id="adminForm">
+                <label for="adminId">Admin ID</label>
+                <input id="adminId" type="text"
+                       placeholder="Enter Admin ID" required>
+
+                <label for="adminPassword">Password</label>
+                <input id="adminPassword" type="password"
+                       placeholder="Enter password" required>
+
+                <button type="submit">Login as Admin</button>
+                <p id="message" role="status"></p>
+            </form>
+
+            <p>Don't have an admin account? <a 
+                href="admin-register.html">Create Admin Account</a></p>
+            <p><a href="index.html">Back to Home</a></p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

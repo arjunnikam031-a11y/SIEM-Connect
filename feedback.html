@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Feedback | SIEM Nashik</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-role="student">
+
+<header>
+    <h1>Sandip Foundation</h1>
+    <p>Student Services and Information Portal</p>
+    <h2>Student Complaint System</h2>
+</header>
+
+<main class="container">
+
+    <section class="card">
+        <h2>Student Complaint System</h2>
+        <p>Submit your complaint regarding college facilities or services.</p>
+
+         <form id="feedbackForm">
+
+            <input type="hidden" id="feedbackType" value="Complaint">
+
+            <label for="feedbackCategory">Category</label>
+            <select id="feedbackCategory" required>
+                <option value="">Select Category</option>
+                <option value="Classroom">Classroom</option>
+                <option value="Laboratory">Laboratory</option>
+                <option value="Library">Library</option>
+                <option value="Canteen">Canteen</option>
+                <option value="Cleanliness">Cleanliness</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="feedbackSubject">Subject</label>
+            <input type="text" id="feedbackSubject"
+                   placeholder="Enter subject" required>
+
+            <label for="feedbackMessage">Description</label>
+            <textarea id="feedbackMessage" rows="5"
+                      placeholder="Write your feedback or complaint"
+                      required></textarea>
+
+            <br><br>
+            <button type="submit">Submit Complaint</button>
+        </form>
+
+        <p id="feedbackResult" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+        <a href="student-dashboard.html">Back to Student Dashboard</a>
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+<script src="feedback.js"></script>
+
+</body>
+</html>

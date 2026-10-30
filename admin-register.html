@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIEM Nashik | Admin Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Sandip Foundation</h1>
+        <p>Sandip Institute of Engineering and Management, Nashik</p>
+        <h2>Admin Registration</h2>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>Create Admin Account</h2>
+
+            <form id="adminRegisterForm">
+
+                <label for="adminName">Full Name</label>
+                <input type="text" id="adminName" required>
+
+                <label for="adminId">Create Admin ID</label>
+                <input type="text" id="adminId" required>
+
+                <label for="adminEmail">Email Address</label>
+                <input type="email" id="adminEmail" required>
+
+                <label for="adminPassword">Create Password</label>
+                <input type="password" id="adminPassword"
+                       minlength="6" required>
+
+                <label for="confirmAdminPassword">
+                    Confirm Password
+                </label>
+                <input type="password" id="confirmAdminPassword"
+                       minlength="6" required>
+
+                <button type="submit">Create Admin Account</button>
+
+                <p id="adminRegisterMessage" role="status"></p>
+            </form>
+
+            <p>
+                Already have an account?
+                <a href="admin-login.html">Admin Login</a>
+            </p>
+        </section>
+    </main>
+
+    <script src="admin-register.js"></script>
+</body>
+</html>

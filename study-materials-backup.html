@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIEM Nashik | Study Materials</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Sandip Foundation</h1>
+        <p>Sandip Institute of Engineering and Management, Nashik</p>
+        <h2>Study Materials</h2>
+    </header>
+
+    <main class="container">
+        <section class="card" id="uploadSection">
+            <h2>Upload Study Material</h2>
+            <p>Select a PDF file from your laptop.</p>
+
+            <form id="materialForm">
+                <label for="materialTitle">Material Title</label>
+                <input
+                    type="text"
+                    id="materialTitle"
+                    placeholder="Example: Java Unit 1 Notes"
+                    required
+                >
+
+                <label for="materialSubject">Subject</label>
+                <input
+                    type="text"
+                    id="materialSubject"
+                    placeholder="Example: Java Programming"
+                    required
+                >
+
+                <label for="materialFile">Choose PDF</label>
+                <input
+                    type="file"
+                    id="materialFile"
+                    accept=".pdf,application/pdf"
+                    required
+                >
+
+                <button type="submit">Add Material</button>
+                <p id="message" role="status"></p>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>Available Study Materials</h2>
+            <div id="materialsList">
+                <p>No materials added yet.</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <a href="student-dashboard.html">Back to Student Dashboard</a>
+            <br><br>
+            <a href="admin-dashboard.html">Back to Admin Dashboard</a>
+            <br><br>
+            <button type="button" onclick="logout()">Logout</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+
+    <script>
+        const role = sessionStorage.getItem("portalRole");
+        const uploadSection = document.getElementById("uploadSection");
+        const form = document.getElementById("materialForm");
+        const list = document.getElementById("materialsList");
+        const message = document.getElementById("message");
+
+        // Only logged-in students and admins can access this page.
+        if (role !== "student" && role !== "admin") {
+            window.location.replace("index.html");
+        } else {
+            if (role === "student") {
+                uploadSection.hidden = true;
+            }
+        }
+
+        // Keep selected files available while this page remains open.
+        const selectedMaterials = [];
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            if (role !== "admin") {
+                message.textContent = "Only admins can add materials.";
+                return;
+            }
+
+            const title =
+                document.getElementById("materialTitle").value.trim();
+            const subject =
+                document.getElementById("materialSubject").value.trim();
+            const file =
+                document.getElementById("materialFile").files[0];
+
+            if (!file || file.type !== "application/pdf") {
+                message.textContent = "Please select a PDF file.";
+                return;
+            }
+
+            const material = {
+                title: title,
+                subject: subject,
+                file: file,
+                url: URL.createObjectURL(file)
+            };
+
+            selectedMaterials.push(material);
+            renderMaterials();
+
+            form.reset();
+            message.textContent = "PDF added to this page successfully.";
+        });
+
+        function renderMaterials() {
+            list.replaceChildren();
+
+            if (selectedMaterials.length === 0) {
+                list.textContent = "No materials added yet.";
+                return;
+            }
+
+            selectedMaterials.forEach(function (material, index) {
+                const card = document.createElement("section");
+                card.className = "card";
+
+                const heading = document.createElement("h3");
+                heading.textContent = material.title;
+
+                const subject = document.createElement("p");
+                subject.textContent = "Subject: " + material.subject;
+
+                const viewLink = document.createElement("a");
+                viewLink.href = material.url;
+                viewLink.target = "_blank";
+                viewLink.rel = "noopener";
+                viewLink.textContent = "View PDF";
+
+                card.append(heading, subject, viewLink);
+
+                if (role === "admin") {
+                    const removeButton = document.createElement("button");
+                    removeButton.textContent = "Remove";
+                    removeButton.type = "button";
+
+                    removeButton.addEventListener("click", function () {
+                        URL.revokeObjectURL(material.url);
+                        selectedMaterials.splice(index, 1);
+                        renderMaterials();
+                    });
+
+                    card.appendChild(removeButton);
+                }
+
+                list.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>

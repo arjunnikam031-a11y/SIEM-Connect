@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | SIEM Nashik</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .profile-container {
+            max-width: 650px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-card h2 {
+            color: #174a7e;
+            text-align: center;
+        }
+
+        .profile-row {
+            padding: 13px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .profile-row strong {
+            display: inline-block;
+            width: 145px;
+        }
+
+        .profile-actions {
+            margin-top: 20px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body data-role="student">
+
+<header>
+    <h1>Sandip Foundation</h1>
+    <p>College Students Services and Information Portal</p>
+</header>
+
+<main class="profile-container">
+    <section class="profile-card">
+        <h2>My Profile</h2>
+
+        <div class="profile-row">
+    <strong>Student Name:</strong>
+    <span id="studentName">Loading...</span>
+</div>
+
+<div class="profile-row">
+    <strong>Roll Number:</strong>
+    <span id="rollNumber">Loading...</span>
+</div>
+
+<div class="profile-row">
+    <strong>PRN:</strong>
+    <span id="studentPRN">Loading...</span>
+</div>
+
+<div class="profile-row">
+    <strong>Course:</strong>
+    <span id="studentCourse">BCA - TYBCA</span>
+</div>
+
+<div class="profile-row">
+    <strong>Division:</strong>
+    <span id="studentDivision">A</span>
+</div>
+
+<div class="profile-row">
+    <strong>Mobile Number:</strong>
+    <span id="studentMobile">Loading...</span>
+</div>
+
+        <div class="profile-actions">
+            <a href="student-dashboard.html">Back to Dashboard</a>
+
+            <button type="button" id="editProfileBtn">
+                Edit Profile
+            </button>
+
+            <button onclick="logout()">Logout</button>
+        </div>
+    </section>
+</main>
+
+<script>
+const students = [
+    ["1", "451202401", "RAKSHA HIMMAT CHAUDHARI", "9209447590"],
+    ["2", "451202402", "SANSKRUTI SUNIL SOHRA", "9699354972"],
+    ["3", "451202403", "GAURI VISHWASRAO WANKHEDE", "8446212715"],
+    ["4", "451202404", "NILAM ATUL CHAUDHARI", "9699087745"],
+    ["5", "451202405", "NIKITA KRUSHNA JADHAV", "7757803061"],
+    ["6", "451202406", "GAURAV RAMESH NIRGUDE", "9923889837"],
+    ["7", "451202407", "MANISH SUNIL GAIKWAD", "7066100647"],
+    ["8", "451202408", "GAURAV VIJAY AHER", "8857951617"],
+    ["9", "451202409", "ADITYA SANDEEP MALI", "8329162656"],
+    ["10", "451202410", "VINOD DIPAK HANDE", "9921522942"],
+    ["11", "451202411", "DEVESH PRAVIN PATIL", "7249519066"],
+    ["12", "451202412", "RUTUJA DNYANESHWAR DUSANE", "7276563943"],
+    ["13", "451202413", "VIJAYALAXMI KAILAS KHOKALE", "9172129168"],
+    ["14", "451202414", "DHANARAJ BHASKAR MALI", "7821019271"],
+    ["15", "451202415", "APEKSHA TUKARAM SAWANT", "8483031085"],
+    ["16", "451202416", "AARATI NAMDEV SAWANT", "8446657432"],
+    ["17", "451202418", "PAVAN BABU NIRGUTLE", "7498780867"],
+    ["18", "451202419", "AYUSHKUMAR VIJAYSHANKAR RAWAT", "7249236121"],
+    ["19", "451202420", "DIPAK REVAJI BHAVARE", "8766642944"],
+    ["20", "451202422", "BHUMIKA LOTAN PATIL", "8799105228"],
+    ["21", "451202424", "OM KISHOR PARMAR", "8975702903"],
+    ["22", "451202425", "ARJUN RAMDAS NIKAM", "9552889315"],
+    ["23", "451202427", "HABIBULLA HANIF SHAIKH", "7559439053"],
+    ["24", "451202428", "DHANASHRI SANDIP WARKE", "8767525507"],
+    ["25", "451202429", "DATTATRAY ARJUN FOKANE", "8329724806"],
+    ["26", "451202430", "MAYURI SHARAD WARULE", "8668542052"],
+    ["27", "451202431", "VIPUL GOKUL BADAME", "9156472081"],
+    ["28", "451202432", "PRATIKSHA EKNATH SHELKE", "9850304962"],
+    ["29", "451202433", "SURAJ RAJENDRA NIKUMBH", "9075881313"],
+    ["30", "451202434", "JYOTI MADHUKAR KURANE", "9373179358"],
+    ["31", "451202435", "SOHAM PRADIP NAWALE", "7020928120"],
+    ["32", "451202436", "CHETNA BHATU KULTHE", "9699316099"],
+    ["33", "451202437", "MEGHRAJ SHANKAR GAIKWAD", "7020088197"],
+    ["34", "451202438", "SAMARTH SUNIL PATIL", "7666951006"],
+    ["35", "451202439", "SHRADDHEY SATISH CHAUDHARI", "9545256771"],
+    ["36", "451202440", "DHIRAJ RAJENDRA PATIL", "8799855568"],
+    ["37", "451202441", "LOKESH PRADIP PATIL", "9834872443"],
+    ["38", "451202442", "ANUSHKA GOKUL GHARATE", "9158526253"],
+    ["39", "451202443", "VIKAS RAJENDRA CHITTE", "9699297488"],
+    ["40", "451202448", "KOMAL GORAKHNATH NERPAGAR", "8482960728"],
+    ["41", "451202449", "VINAYAK BHUPAL KODILKAR", "9322300402"],
+    ["42", "451202450", "VISHAL SANTOSH YAMPURE", "7666851081"],
+    ["43", "451202452", "VISHAL SEWALAL YADAV", "8482929303"]
+];
+
+const loggedInStudentId = sessionStorage.getItem("studentId");
+
+const registeredStudents = JSON.parse(
+    localStorage.getItem("registeredStudents") || "[]"
+);
+
+const registeredStudent = registeredStudents.find(function(item) {
+    return item.studentId === loggedInStudentId;
+});
+
+const student = students.find(function(item) {
+    return item[0] === "4";
+});
+
+if (registeredStudent) {
+    document.getElementById("studentName").textContent = registeredStudent.name;
+    document.getElementById("rollNumber").textContent = registeredStudent.roll;
+    document.getElementById("studentPRN").textContent = registeredStudent.prn;
+    document.getElementById("studentMobile").textContent = registeredStudent.mobile;
+} else if (loggedInStudentId === "student1" && student) {
+    document.getElementById("studentName").textContent = student[2];
+    document.getElementById("rollNumber").textContent = student[0];
+    document.getElementById("studentPRN").textContent = student[1];
+    document.getElementById("studentMobile").textContent = student[3];
+} else {
+    document.getElementById("studentName").textContent = "Student not found";
+    document.getElementById("rollNumber").textContent = "-";
+    document.getElementById("studentPRN").textContent = "-";
+    document.getElementById("studentMobile").textContent = "-";
+}
+
+const mobileKey = loggedInStudentId + "_mobile";
+const savedMobile = localStorage.getItem(mobileKey);
+
+if (savedMobile) {
+    document.getElementById("studentMobile").textContent = savedMobile;
+}
+
+document.getElementById("editProfileBtn").addEventListener("click", function () {
+    const currentMobile = document.getElementById("studentMobile").textContent;
+    const newMobile = prompt("Enter your new 10-digit mobile number:", currentMobile);
+
+    if (newMobile === null) {
+        return;
+    }
+
+    const mobile = newMobile.trim();
+
+    if (/^\d{10}$/.test(mobile)) {
+        localStorage.setItem(mobileKey, mobile);
+        document.getElementById("studentMobile").textContent = mobile;
+        alert("Mobile number saved successfully!");
+    } else {
+        alert("Please enter a valid 10-digit mobile number.");
+    }
+});
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>

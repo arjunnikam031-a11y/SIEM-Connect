@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIEM Nashik | Class Timetable</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .timetable-card {
+            width: 100%;
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 25px;
+            box-sizing: border-box;
+        }
+
+        .timetable-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .timetable-table {
+            width: 100%;
+            min-width: 650px;
+            border-collapse: collapse;
+            font-size: 17px;
+        }
+
+        .timetable-table th,
+        .timetable-table td {
+            border: 1px solid #ccc;
+            padding: 18px 14px;
+            text-align: center;
+            min-width: 90px;
+        }
+
+        .timetable-table th {
+            background-color: #164e83;
+            color: white;
+        }
+
+        .timetable-table td:first-child {
+            font-weight: bold;
+            background-color: #eaf2fa;
+        }
+
+        .timetable-table tbody tr:nth-child(even) td:not(:first-child) {
+            background-color: #f5f8fc;
+        }
+
+        @media (max-width: 600px) {
+            .timetable-card {
+                padding: 12px;
+            }
+
+            .timetable-table {
+                font-size: 15px;
+            }
+
+            .timetable-table th,
+            .timetable-table td {
+                padding: 14px 10px;
+            }
+        }
+    </style>
+</head>
+
+<body data-role="student">
+
+    <header>
+        <h1>Sandip Foundation</h1>
+        <p>Sandip Institute of Engineering and Management, Nashik</p>
+        <h2>Student Class Timetable</h2>
+    </header>
+
+    <main class="container">
+
+        <section class="card timetable-card">
+            <h2>Weekly Class Schedule</h2>
+            <p>Sample timetable for project demonstration only.</p>
+
+            <div class="timetable-wrapper">
+                <table class="timetable-table">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>9–10 AM</th>
+                            <th>10–11 AM</th>
+                            <th>11–12 PM</th>
+                            <th>12–1 PM</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="studentTimetableBody">
+</tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Important Information</h2>
+            <ul>
+                <li>Please arrive on time for every lecture.</li>
+                <li>Check college announcements for schedule changes.</li>
+                <li>Confirm the actual timetable with your department.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <a href="student-dashboard.html">Back to Student Dashboard</a>
+            <br><br>
+            <button type="button" onclick="logout()">Logout</button>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+    <script src="student-timetable.js"></script>
+
+</body>
+</html>

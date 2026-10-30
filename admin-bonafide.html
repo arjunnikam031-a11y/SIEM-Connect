@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bonafide Applications | Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-role="admin">
+
+    <header>
+        <h1>Sandip Foundation</h1>
+        <p>Student Services and Information Portal</p>
+        <h2>Bonafide Applications</h2>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>Submitted Applications</h2>
+            <p>Review student bonafide certificate applications below.</p>
+            <div id="applicationList"></div>
+        </section>
+
+        <section class="card">
+            <a href="admin-dashboard.html">Back to Admin Dashboard</a>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        const list = document.getElementById("applicationList");
+        const applications = JSON.parse(
+            localStorage.getItem("bonafideApplications") || "[]"
+        );
+
+        if (applications.length === 0) {
+            list.textContent = "No bonafide applications found.";
+        } else {
+            applications.forEach(function(app, index) {
+                const card = document.createElement("div");
+                card.className = "card";
+
+                const details = document.createElement("p");
+                details.textContent =
+                    "Application ID: " + app.applicationId +
+                    " | Name: " + (app.fullName || app.name ||
+                    app.studentName || "not available")+
+                    " | Roll No: " + app.rollNumber +
+                    " | PRN: " + app.prn +
+                    " | Course: " + app.course +
+                    " | Year: " + app.Year +
+                    " | Purpose: " + app.purpose +
+                    " | Reason: " + app.reason +
+                    " | Status: " + app.status;
+
+                const status = document.createElement("select");
+                ["Pending", "Approved", "Rejected"].forEach(function(value) {
+                    const option = document.createElement("option");
+                    option.value = value;
+                    option.textContent = value;
+                    status.appendChild(option);
+                });
+
+                status.value = app.status || "Pending";
+
+                const save = document.createElement("button");
+                save.textContent = "Update Status";
+
+                save.addEventListener("click", function() {
+                    applications[index].status = status.value;
+                    localStorage.setItem(
+                        "bonafideApplications",
+                        JSON.stringify(applications)
+                    );
+                    alert("Application status updated!");
+                    location.reload();
+                });
+
+                card.appendChild(details);
+                card.appendChild(status);
+                card.appendChild(document.createTextNode(" "));
+                card.appendChild(save);
+                list.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
