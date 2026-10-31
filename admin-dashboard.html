@@ -1,57 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIEM Nashik | Admin Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard | SIEM Connect</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f3f6fb;
+    color: #172554;
+}
+
+header {
+    background: #102a56;
+    color: white;
+    padding: 18px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+    background: white;
+    color: #102a56;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.brand h2 {
+    font-size: 19px;
+}
+
+.brand p {
+    font-size: 12px;
+    color: #cbd5e1;
+    margin-top: 4px;
+}
+
+.admin-label {
+    background: #ffffff20;
+    padding: 9px 17px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.container {
+    max-width: 1150px;
+    margin: auto;
+    padding: 35px 20px;
+}
+
+.welcome {
+    background: linear-gradient(120deg, #102a56, #2455a0);
+    color: white;
+    padding: 35px;
+    border-radius: 16px;
+    margin-bottom: 35px;
+    box-shadow: 0 8px 25px #102a5620;
+}
+
+.welcome h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.welcome p {
+    color: #dbeafe;
+    line-height: 1.6;
+}
+
+.section-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 5px 18px #102a560c;
+    transition: 0.3s;
+    text-decoration: none;
+    color: #172554;
+    display: block;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px #102a5620;
+    border-color: #2455a0;
+}
+
+.card-icon {
+    width: 52px;
+    height: 52px;
+    background: #eaf1ff;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    font-size: 25px;
+    margin-bottom: 18px;
+}
+
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 9px;
+}
+
+.card p {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.card .arrow {
+    display: inline-block;
+    margin-top: 18px;
+    color: #2455a0;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.logout-area {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.logout-btn {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 13px 32px;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.logout-btn:hover {
+    background: #b91c1c;
+}
+
+footer {
+    background: #102a56;
+    color: #cbd5e1;
+    text-align: center;
+    padding: 18px;
+    font-size: 13px;
+    margin-top: 45px;
+}
+
+@media(max-width: 800px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 520px) {
+    header {
+        padding: 15px 5%;
+    }
+
+    .brand h2 {
+        font-size: 15px;
+    }
+
+    .welcome {
+        padding: 25px 20px;
+    }
+
+    .welcome h1 {
+        font-size: 23px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 </head>
+
 <body data-role="admin">
-    <header>
-        <h1>Sandip Foundation</h1>
-        <p>Student Services and Information Portal-Admin</p>
-    </header>
 
-    <main class="container">
-        <section class="card">
-            <h2>Manage Notices</h2>
-            <p>View the notices section.</p>
-            <a href="notices.html">Open Notices</a>
-        </section>
+<header>
+    <div class="brand">
+        <div class="logo">SIEM</div>
+        <div>
+            <h2>Sandip Institute of Engineering and Management</h2>
+            <p>SIEM Connect | Student Services Portal</p>
+        </div>
+    </div>
+    <div class="admin-label">⚙ Admin Panel</div>
+</header>
 
-        <section class="card">
-            <h2>Study Materials</h2>
-            <p>Access the study materials section.</p>
-            <a href="study-materials.html">Open Materials</a>
-        </section>
+<main class="container">
 
-        <section class="card">
-    <h2>📅 Timetable Management</h2>
-    <p>Add, edit, and delete class timetable entries.</p>
-    <a href="admin-timetable.html">Manage Timetable</a>
-</section>
-        <section class="card">
-    <h2>Student Management</h2>
-    <p>View and search registered students.</p>
-    <a href="admin-students.html">Manage Students</a>
-</section>
-
-            <section class="card">
-        <h2>📄 Bonafide Applications</h2>
-        <p>View student bonafide certificate applications.</p>
-        <a href="admin-bonafide.html">View Applications</a>
+    <section class="welcome">
+        <h1>Welcome, Administrator! 👋</h1>
+        <p>Manage student services, academic activities and institute information from one place.</p>
     </section>
-    
-        <section class="card">
-    <h2>Student Complaint Management</h2>
-    <p>View student complaints and update their status.</p>
-    <a href="admin-complaints.html">Manage Complaints</a>
-</section>
-<section class="card">
-    <button type="button" onclick="logout()">Logout</button>
-</section>
-    </main>
 
-    <script src="script.js"></script>
+    <h2 class="section-title">Administration Services</h2>
+
+    <div class="dashboard-grid">
+
+        <a href="notices.html" class="card">
+            <div class="card-icon">📢</div>
+            <h3>Manage Notices</h3>
+            <p>Create and manage important college announcements and student notices.</p>
+            <span class="arrow">Open Service →</span>
+        </a>
+
+        <a href="study-materials.html" class="card">
+            <div class="card-icon">📚</div>
+            <h3>Study Materials</h3>
+            <p>Manage educational resources and study materials for students.</p>
+            <span class="arrow">Open Service →</span>
+        </a>
+
+        <a href="admin-timetable.html" class="card">
+            <div class="card-icon">🗓️</div>
+            <h3>Timetable Management</h3>
+            <p>Manage class schedules and academic timetables.</p>
+            <span class="arrow">Open Service →</span>
+        </a>
+
+        <a href="admin-students.html" class="card">
+            <div class="card-icon">👨‍🎓</div>
+            <h3>Student Management</h3>
+            <p>Access and manage student-related administrative records.</p>
+            <span class="arrow">Open Service →</span>
+        </a>
+
+        <a href="admin-bonafide.html" class="card">
+            <div class="card-icon">📄</div>
+            <h3>Bonafide Applications</h3>
+            <p>Review and manage student bonafide certificate applications.</p>
+            <span class="arrow">Open Service →</span>
+        </a>
+
+        <a href="admin-complaints.html" class="card">
+            <div class="card-icon">📝</div>
+            <h3>Complaint Management</h3>
+            <p>View and manage complaints submitted by students.</p>
+            <span class="arrow">Open Service →</span>
+        </a>
+
+    </div>
+
+    <div class="logout-area">
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+</main>
+
+<footer>
+    © 2026 SIEM Connect | Sandip Institute of Engineering and Management
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
