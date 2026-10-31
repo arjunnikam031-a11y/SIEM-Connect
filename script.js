@@ -49,7 +49,11 @@ const registeredAdmin = admins.find(function(admin) {
     return admin.id === id && admin.password === password;
 });
 
-if ((id === "admin" && password === "admin123") || registeredAdmin) {
+const DEFAULT_ADMIN_ID = "451202425";
+const DEFAULT_ADMIN_PASSWORD = "arjunkaran";
+
+if ((id === DEFAULT_ADMIN_ID &&
+     password === DEFAULT_ADMIN_PASSWORD) || registeredAdmin) {
             sessionStorage.setItem("portalRole", "admin");
             window.location.href = "admin-dashboard.html";
         } else {
