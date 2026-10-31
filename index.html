@@ -1,33 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIEM Nashik | Student Portal</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIEM Connect | Student Portal</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f7fc;
+    color: #17233c;
+}
+
+header {
+    background: #102447;
+    color: white;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo h2 {
+    font-size: 25px;
+}
+
+.logo p {
+    font-size: 12px;
+    margin-top: 5px;
+    color: #cbd8ee;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #55c2ff;
+}
+
+.hero {
+    min-height: 430px;
+    padding: 90px 8%;
+    background: linear-gradient(120deg, #102447, #1769aa);
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero h1 {
+    font-size: 43px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.student {
+    background: white;
+    color: #102447;
+}
+
+.admin {
+    background: #16a3d8;
+    color: white;
+}
+
+section {
+    padding: 55px 8%;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+    margin-top: 30px;
+}
+
+.card {
+    background: white;
+    padding: 28px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+}
+
+.card h3 {
+    color: #14558d;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+footer {
+    background: #102447;
+    color: white;
+    text-align: center;
+    padding: 22px;
+    margin-top: 30px;
+}
+
+@media(max-width:600px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav a {
+        margin: 8px;
+        display: inline-block;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <header>
-        <h1>Sandip Foundation</h1>
-        <p>Sandip Institute of Engineering and Management, Nashik</p>
-    </header>
+<header>
+    <div class="logo">
+        <h2>SIEM CONNECT</h2>
+        <p>Sandip Institute of Engineering and Management</p>
+    </div>
 
-    <main class="container">
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="student-login.html">Student Login</a>
+        <a href="admin-login.html">Admin Login</a>
+    </nav>
+</header>
 
-        <section class="card">
-            <h2>Student Login</h2>
-            <p>Access notices, timetable and study materials.</p>
-            <a href="student-login.html">Login as Student</a>
-        </section>
+<div class="hero">
+    <div class="hero-content">
+        <h1>Welcome to SIEM Connect</h1>
+        <p>
+            Your Digital College Campus Portal.
+            Access academic information, student services,
+            notices, study materials and career guidance
+            from one platform.
+        </p>
 
-        <section class="card">
-            <h2>Admin Login</h2>
-            <p>Manage notices, study materials and complaints.</p>
-            <a href="admin-login.html">Login as Admin</a>
-        </section>
+        <a href="student-login.html" class="btn student">
+            Student Login
+        </a>
 
-    </main>
+        <a href="admin-login.html" class="btn admin">
+            Admin Login
+        </a>
+    </div>
+</div>
+
+<section>
+    <h2>Our Student Services</h2>
+    <p>Everything students need, available in one place.</p>
+
+    <div class="services">
+
+        <div class="card">
+            <h3>📚 Study Materials</h3>
+            <p>Access learning resources and academic materials.</p>
+        </div>
+
+        <div class="card">
+            <h3>📢 Notices</h3>
+            <p>Stay updated with important college announcements.</p>
+        </div>
+
+        <div class="card">
+            <h3>📅 Timetable</h3>
+            <p>View your class schedules and academic timetable.</p>
+        </div>
+
+        <div class="card">
+            <h3>📝 Student Services</h3>
+            <p>Access bonafide, complaints and other student services.</p>
+        </div>
+
+        <div class="card">
+            <h3>🎯 Career Guidance</h3>
+            <p>Explore skill development and career opportunities.</p>
+        </div>
+
+        <div class="card">
+            <h3>🎓 Academic Support</h3>
+            <p>Get important academic information in one place.</p>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 SIEM Connect | Sandip Institute of Engineering and Management</p>
+    <p>Designed for Students</p>
+</footer>
 
 </body>
 </html>
