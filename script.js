@@ -62,6 +62,75 @@ if ((id === DEFAULT_ADMIN_ID &&
     });
 }
 
+// Admin Account Settings
+const settingsForm = document.getElementById("adminSettingsForm");
+
+if (settingsForm) {
+    settingsForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const currentId = document.getElementById("currentAdminId").value.trim();
+        const currentPassword = document.getElementById("currentAdminPassword").value;
+        const newId = document.getElementById("newAdminId").value.trim();
+        const newPassword = document.getElementById("newAdminPassword").value;
+        const confirmPassword = document.getElementById("confirmNewAdminPassword").value;
+        const message = document.getElementById("message");
+
+        const admins = JSON.parse(localStorage.getItem("registeredAdmins") || "[]");
+        const saved = JSON.parse(localStorage.getItem("siemAdminCredentials") || "null");
+
+        const index = admins.findIndex(a =>
+            a.id === currentId && a.password === currentPassword
+        );
+
+        const validSaved = saved &&
+            saved.id === currentId &&
+            saved.password === currentPassword;
+
+        const validDefault = !saved &&
+            currentId === DEFAULT_ADMIN_ID &&
+            currentPassword === DEFAULT_ADMIN_PASSWORD;
+
+        if (index === -1 && !validSaved && !validDefault) {
+            message.textContent = "Current ID or password is incorrect.";
+            return;
+        }
+
+        if (newPassword.length < 6) {
+            message.textContent = "Password must contain at least 6 characters.";
+            return;
+        }
+
+        if (newPassword !== confirmPassword) {
+            message.textContent = "New passwords do not match.";
+            return;
+        }
+
+        if (admins.some((a, i) => i !== index && a.id === newId)) {
+            message.textContent = "This Admin ID is already in use.";
+            return;
+        }
+
+        if (index !== -1) {
+            admins[index].id = newId;
+            admins[index].password = newPassword;
+            localStorage.setItem("registeredAdmins", JSON.stringify(admins));
+        } else {
+            localStorage.setItem("siemAdminCredentials", JSON.stringify({
+                id: newId,
+                password: newPassword
+            }));
+        }
+
+        message.textContent = "Credentials updated successfully! Please login again.";
+        settingsForm.reset();
+        sessionStorage.removeItem("portalRole");
+
+        setTimeout(function() {
+            window.location.href = "admin-login.html";
+        }, 1800);
+    });
+}
 // Demo dashboard access check
 const requiredRole = document.body.dataset.role;
 
