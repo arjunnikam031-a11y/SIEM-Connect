@@ -3,360 +3,170 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>SIEM Connect | College Portal</title>
-
+<meta name="theme-color" content="#0b1f3a">
+<meta name="description" content="SIEM Connect - Student information and campus services portal.">
+<title>SIEM Connect | Student & Campus Portal</title>
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    background: #f4f7fc;
-    color: #17233c;
-}
-
-header {
-    background: #102447;
-    color: white;
-    padding: 18px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.brand-mark {
-    background: white;
-    color: #102447;
-    padding: 13px;
-    border-radius: 10px;
-    font-weight: bold;
-}
-
-.logo h2 {
-    font-size: 23px;
-}
-
-.logo p {
-    font-size: 12px;
-    margin-top: 5px;
-    color: #cbd8ee;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 18px;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: #55c2ff;
-}
-
-.hero {
-    min-height: 430px;
-    padding: 90px 8%;
-    background: linear-gradient(120deg, #102447, #1769aa);
-    color: white;
-    display: flex;
-    align-items: center;
-}
-
-.hero-content {
-    max-width: 750px;
-}
-
-.hero h1 {
-    font-size: 45px;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 18px;
-    line-height: 1.7;
-    margin-bottom: 28px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 14px 25px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    margin: 5px;
-}
-
-.student {
-    background: white;
-    color: #102447;
-}
-
-.admin {
-    background: #16a3d8;
-    color: white;
-}
-
-.btn:hover {
-    opacity: 0.85;
-}
-
-.services {
-    padding: 65px 8%;
-    text-align: center;
-}
-
-.services h2 {
-    font-size: 32px;
-    margin-bottom: 12px;
-    color: #102447;
-}
-
-.subtitle {
-    color: #64748b;
-    margin-bottom: 35px;
-}
-
-.service-grid {
-    display: grid;
-    grid-template-columns:
-    repeat(auto-fit, minmax(220px, 1fr));
-    gap: 22px;
-}
-
-.card {
-    background: white;
-    padding: 30px 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.07);
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-}
-
-.card .icon {
-    font-size: 35px;
-    margin-bottom: 15px;
-}
-
-.card h3 {
-    color: #14558d;
-    margin-bottom: 12px;
-}
-
-.card p {
-    color: #64748b;
-    line-height: 1.6;
-}
-
-.card a {
-    display: inline-block;
-    margin-top: 18px;
-    color: #0879bd;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.about {
-    background: white;
-    padding: 55px 8%;
-    text-align: center;
-}
-
-.about h2 {
-    color: #102447;
-    margin-bottom: 15px;
-}
-
-.about p {
-    color: #64748b;
-    line-height: 1.8;
-    max-width: 800px;
-    margin: auto;
-}
-
-footer {
-    background: #102447;
-    color: white;
-    text-align: center;
-    padding: 25px;
-    line-height: 1.8;
-}
-
-@media(max-width: 650px) {
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    nav a {
-        display: inline-block;
-        margin: 8px;
-    }
-
-    .hero {
-        padding: 65px 7%;
-    }
-
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-}
+:root{--navy:#0b1f3a;--navy2:#12345a;--blue:#1e63a5;--sky:#58b6e8;--ink:#172b45;--muted:#64748b;--paper:#f4f7fb;--white:#fff;--line:#e3eaf2;--shadow:0 18px 45px rgba(11,31,58,.10)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Inter,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
+a{color:inherit}
+.topbar{background:#07172c;color:#d8e6f5;padding:8px 6%;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px}
+.site-header{background:#fff;padding:18px 6%;display:flex;align-items:center;justify-content:space-between;gap:24px;box-shadow:0 4px 18px rgba(11,31,58,.05)}
+.brand{display:flex;align-items:center;gap:13px;min-width:260px;text-decoration:none}
+.brand-mark{width:52px;height:52px;flex:0 0 52px;display:grid;place-items:center;color:#fff;font-size:14px;font-weight:800;border-radius:14px;background:linear-gradient(145deg,var(--navy),var(--blue));box-shadow:0 8px 18px rgba(30,99,165,.22)}
+.brand-copy strong{display:block;color:var(--navy);font-size:20px;line-height:1.2;letter-spacing:.7px}
+.brand-copy small{display:block;color:var(--muted);font-size:11px;margin-top:4px;line-height:1.4}
+.nav-links{display:flex;align-items:center;justify-content:flex-end;gap:22px;flex-wrap:wrap}
+.nav-links a{text-decoration:none;color:#334a65;font-size:13px;font-weight:700}
+.nav-links a:hover{color:var(--blue)}
+.nav-links .nav-login{color:#fff;background:var(--navy);padding:11px 15px;border-radius:8px}
+.nav-links .nav-login:hover{color:#fff;background:var(--blue)}
+.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#081a31 0%,#10365e 58%,#17558a 100%);color:#fff;padding:76px 6% 82px}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;pointer-events:none;border:1px solid rgba(255,255,255,.12)}
+.hero:before{width:480px;height:480px;right:-90px;top:-220px}
+.hero:after{width:360px;height:360px;right:80px;bottom:-260px}
+.hero-inner{position:relative;z-index:1;max-width:1180px;margin:auto;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);align-items:center;gap:55px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:#b9def5;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.15);padding:7px 13px;border-radius:30px;font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
+.eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:#62c7f4}
+.hero h1{font-size:clamp(36px,5vw,58px);line-height:1.08;letter-spacing:-1.6px;margin:22px 0 19px}
+.hero h1 span{color:#79cafa}
+.hero-copy{color:#d2e0ef;font-size:16px;max-width:650px;line-height:1.85}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.button{display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;font-weight:800;font-size:13px;padding:14px 20px;border-radius:9px;transition:transform .2s,background .2s}
+.button:hover{transform:translateY(-2px)}
+.button-primary{background:#fff;color:var(--navy)}
+.button-secondary{color:#fff;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.06)}
+.hero-note{color:#b8cde1;font-size:11px;margin-top:17px}
+.hero-panel{padding:27px;border-radius:20px;background:linear-gradient(155deg,rgba(255,255,255,.16),rgba(255,255,255,.06));border:1px solid rgba(255,255,255,.2);box-shadow:0 24px 60px rgba(0,0,0,.18)}
+.panel-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:25px}
+.panel-top span:first-child{font-weight:800;font-size:13px}
+.status{color:#b9f1d2;font-size:10px;font-weight:800;background:rgba(83,203,143,.13);padding:6px 9px;border-radius:20px}
+.panel-icon{width:66px;height:66px;border-radius:18px;display:grid;place-items:center;background:rgba(255,255,255,.13);font-size:30px;margin-bottom:18px}
+.hero-panel h2{font-size:23px;line-height:1.25;margin-bottom:9px}
+.hero-panel p{color:#d2e0ef;font-size:12px;line-height:1.7}
+.panel-divider{height:1px;background:rgba(255,255,255,.18);margin:22px 0 17px}
+.panel-foot{display:flex;justify-content:space-between;gap:12px;color:#c3d8ea;font-size:11px}
+.section{max-width:1180px;margin:auto;padding:72px 6%}
+.section-heading{text-align:center;max-width:650px;margin:0 auto 38px}
+.kicker{color:var(--blue);text-transform:uppercase;font-size:10px;letter-spacing:1.8px;font-weight:900}
+.section-heading h2{color:var(--navy);font-size:clamp(27px,3vw,36px);line-height:1.2;margin:10px 0 12px}
+.section-heading p{color:var(--muted);font-size:14px}
+.services-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.service-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:25px;min-height:205px;display:flex;flex-direction:column;box-shadow:0 8px 24px rgba(11,31,58,.035);transition:transform .22s,box-shadow .22s,border-color .22s}
+.service-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:#c7dced}
+.service-icon{width:45px;height:45px;border-radius:12px;display:grid;place-items:center;background:#eaf3fb;color:var(--blue);font-size:21px;margin-bottom:17px}
+.service-card h3{color:var(--navy);font-size:16px;margin-bottom:7px}
+.service-card p{color:var(--muted);font-size:12px;line-height:1.7;flex:1}
+.service-card a{margin-top:17px;color:var(--blue);font-size:12px;font-weight:900;text-decoration:none}
+.service-card a:hover{text-decoration:underline}
+.about-band{background:#eaf1f8;border-top:1px solid #e1eaf3;border-bottom:1px solid #e1eaf3}
+.about-inner{max-width:1180px;margin:auto;padding:54px 6%;display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+.about-inner h2{color:var(--navy);font-size:29px;line-height:1.2;margin:8px 0 14px}
+.about-inner p{color:#5e7188;font-size:13px;line-height:1.9}
+.about-points{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.about-point{background:#fff;border:1px solid #dfe8f1;border-radius:10px;padding:15px;color:#28435f;font-size:12px;font-weight:800}
+.about-point span{display:block;color:var(--blue);font-size:19px;margin-bottom:5px}
+.cta{max-width:1180px;margin:58px auto;padding:0 6%}
+.cta-box{background:linear-gradient(110deg,#0b1f3a,#174c7b);color:#fff;border-radius:18px;padding:34px 38px;display:flex;justify-content:space-between;align-items:center;gap:24px;box-shadow:var(--shadow)}
+.cta-box h2{font-size:23px;margin-bottom:5px}
+.cta-box p{color:#c7d9eb;font-size:12px}
+.cta-box .button{flex-shrink:0}
+.site-footer{background:#07172c;color:#c4d3e3;padding:38px 6% 18px}
+.footer-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:35px;padding-bottom:28px}
+.footer-brand{color:#fff;font-size:18px;font-weight:900;letter-spacing:.6px;margin-bottom:10px}
+.site-footer p{font-size:11px;line-height:1.8;max-width:390px;color:#9eb2c8}
+.site-footer h3{color:#fff;font-size:12px;margin-bottom:12px}
+.footer-links{display:grid;gap:8px}
+.footer-links a{color:#aebfd1;text-decoration:none;font-size:11px}
+.footer-links a:hover{color:#fff}
+.copyright{max-width:1180px;margin:auto;border-top:1px solid rgba(255,255,255,.12);padding-top:15px;text-align:center;color:#8298af;font-size:10px}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:35px}.hero-panel{max-width:520px}.services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.about-inner{grid-template-columns:1fr;gap:25px}}
+@media(max-width:620px){.topbar{justify-content:center;text-align:center}.site-header{padding:15px 5%;flex-direction:column}.brand{min-width:0}.brand-copy strong{font-size:17px}.brand-copy small{font-size:10px}.nav-links{justify-content:center;gap:13px}.nav-links a{font-size:11px}.nav-links .nav-login{padding:9px 12px}.hero{padding:55px 6% 62px}.hero h1{font-size:39px}.hero-copy{font-size:14px}.hero-panel{padding:22px}.section{padding:55px 6%}.services-grid{grid-template-columns:1fr}.service-card{min-height:0}.about-inner{padding:45px 6%}.about-points{grid-template-columns:1fr 1fr}.cta{margin:42px auto}.cta-box{padding:27px 22px;flex-direction:column;align-items:flex-start}.footer-inner{grid-template-columns:1fr 1fr}.footer-inner>div:first-child{grid-column:1/-1}}
 </style>
 </head>
-
 <body>
-
-<!-- HEADER -->
-
-<header>
-    <div class="logo">
-        <div class="brand-mark">SIEM</div>
-
-        <div>
-            <h2>SIEM CONNECT</h2>
-            <p>Sandip Institute of Engineering and Management, Nashik</p>
-        </div>
-    </div>
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="student-login.html">Student Login</a>
-        <a href="admin-login.html">Admin Login</a>
-    </nav>
-</header>
-
-<!-- HERO SECTION -->
-
-<div class="hero">
-    <div class="hero-content">
-
-        <h1>Welcome to SIEM Connect</h1>
-
-        <p>
-            Your Digital College Campus Portal.
-            Access academic information, student services,
-            notices, study materials and important college
-            updates from one platform.
-        </p>
-
-        <a href="student-login.html" class="btn student">
-            Student Login
-        </a>
-
-        <a href="admin-login.html" class="btn admin">
-            Admin Login
-        </a>
-
-    </div>
+<div class="topbar">
+  <span>▣ &nbsp; Sandip Institute of Engineering and Management, Nashik</span>
+  <span>SIEM Connect · Student Information Portal</span>
 </div>
-
-<!-- STUDENT SERVICES -->
-
-<section class="services">
-
-    <h2>Our Student Services</h2>
-
-    <p class="subtitle">
-        Everything students need, available in one place.
-    </p>
-
-    <div class="service-grid">
-
-        <div class="card">
-            <div class="icon">📚</div>
-            <h3>Study Materials</h3>
-            <p>Access academic notes and learning resources.</p>
-            <a href="study-materials.html">Explore More →</a>
-        </div>
-
-        <div class="card">
-            <div class="icon">📅</div>
-            <h3>Time Table</h3>
-            <p>Check your class schedule and timetable.</p>
-            <a href="timetable.html">Explore More →</a>
-        </div>
-
-        <div class="card">
-            <div class="icon">📢</div>
-            <h3>College Notices</h3>
-            <p>Stay updated with important announcements.</p>
-            <a href="notices.html">Explore More →</a>
-        </div>
-
-        <div class="card">
-            <div class="icon">📝</div>
-            <h3>Bonafide Certificate</h3>
-            <p>Access the student bonafide certificate service.</p>
-            <a href="bonafide.html">Explore More →</a>
-        </div>
-
-        <div class="card">
-            <div class="icon">💬</div>
-            <h3>Student Complaints</h3>
-            <p>Submit and manage student complaints.</p>
-            <a href="complaints.html">Explore More →</a>
-        </div>
-
-        <div class="card">
-            <div class="icon">🎓</div>
-            <h3>Academic Calendar</h3>
-            <p>View important academic dates and schedules.</p>
-            <a href="academic-calender.html">Explore More →</a>
-        </div>
-
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="SIEM Connect Home">
+    <div class="brand-mark">SIEM</div>
+    <div class="brand-copy">
+      <strong>SIEM CONNECT</strong>
+      <small>Sandip Institute of Engineering and Management</small>
     </div>
-
-</section>
-
-<!-- ABOUT SECTION -->
-
-<section class="about">
-
-    <h2>About SIEM Connect</h2>
-
-    <p>
-        SIEM Connect is a digital student information
-        and services portal designed to make college
-        information easily accessible. It brings
-        academic resources, student services and
-        important updates together in one place.
-    </p>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-
-    <h3>SIEM CONNECT</h3>
-
-    <p>
-        Sandip Institute of Engineering and Management, Nashik
-    </p>
-
-    <p>
-        © 2026 SIEM Connect. All Rights Reserved.
-    </p>
-
+  </a>
+  <nav class="nav-links" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="#services">Student Services</a>
+    <a href="#about">About</a>
+    <a class="nav-login" href="student-login.html">Student Login ↗</a>
+    <a class="nav-login" href="admin-login.html">Admin Login ↗</a>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">Your campus, connected</div>
+        <h1>One portal.<br><span>Every student service.</span></h1>
+        <p class="hero-copy">Welcome to SIEM Connect — your digital gateway to academic resources, campus updates and essential student services at Sandip Institute of Engineering and Management.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="student-login.html">Access Student Portal <span>→</span></a>
+          <a class="button button-secondary" href="#services">Explore Services <span>↓</span></a>
+        </div>
+        <p class="hero-note">A simple, convenient place to stay informed and connected with your campus.</p>
+      </div>
+      <aside class="hero-panel" aria-label="Portal overview">
+        <div class="panel-top"><span>SIEM CONNECT PORTAL</span><span class="status">● ONLINE ACCESS</span></div>
+        <div class="panel-icon">🎓</div>
+        <h2>Your academic life,<br>in one place.</h2>
+        <p>Find study resources, check notices and timetable information, and access important student services through one convenient portal.</p>
+        <div class="panel-divider"></div>
+        <div class="panel-foot"><span>Student Services</span><span>Academic Resources</span></div>
+      </aside>
+    </div>
+  </section>
+  <section class="section" id="services">
+    <div class="section-heading">
+      <div class="kicker">Explore the portal</div>
+      <h2>Student Services</h2>
+      <p>Quick access to the information and services you need during your academic journey.</p>
+    </div>
+    <div class="services-grid">
+      <article class="service-card"><div class="service-icon">▤</div><h3>Study Materials</h3><p>Access academic notes and learning resources in one place.</p><a href="study-materials.html">Explore materials →</a></article>
+      <article class="service-card"><div class="service-icon">▦</div><h3>Class Timetable</h3><p>View class schedules and stay up to date with your timetable.</p><a href="timetable.html">View timetable →</a></article>
+      <article class="service-card"><div class="service-icon">◉</div><h3>College Notices</h3><p>Keep track of important college announcements and updates.</p><a href="notices.html">Read notices →</a></article>
+      <article class="service-card"><div class="service-icon">▧</div><h3>Bonafide Certificate</h3><p>Access the bonafide certificate request service.</p><a href="bonafide.html">Open service →</a></article>
+      <article class="service-card"><div class="service-icon">✉</div><h3>Student Complaints</h3><p>Submit a concern through the student complaint service.</p><a href="complaints.html">Open service →</a></article>
+      <article class="service-card"><div class="service-icon">▣</div><h3>Academic Calendar</h3><p>Check key academic dates and schedule information.</p><a href="academic-calender.html">View calendar →</a></article>
+    </div>
+  </section>
+  <section class="about-band" id="about">
+    <div class="about-inner">
+      <div><div class="kicker">About the platform</div><h2>Making campus information easier to access.</h2><p>SIEM Connect brings useful student information and campus services together in a clear, accessible digital space. Use the portal to find academic resources, follow college updates and reach student services with ease.</p></div>
+      <div class="about-points">
+        <div class="about-point"><span>01</span>Easy access to resources</div>
+        <div class="about-point"><span>02</span>Campus updates in one place</div>
+        <div class="about-point"><span>03</span>Convenient student services</div>
+        <div class="about-point"><span>04</span>Dedicated portal access</div>
+      </div>
+    </div>
+  </section>
+  <section class="cta">
+    <div class="cta-box"><div><h2>Ready to get started?</h2><p>Sign in to access your student portal and available campus services.</p></div><a class="button button-primary" href="student-login.html">Student Login →</a></div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div><div class="footer-brand">SIEM CONNECT</div><p>Student information and campus services portal for Sandip Institute of Engineering and Management, Nashik.</p></div>
+    <div><h3>QUICK LINKS</h3><div class="footer-links"><a href="index.html">Home</a><a href="student-login.html">Student Login</a><a href="admin-login.html">Admin Login</a></div></div>
+    <div><h3>STUDENT SERVICES</h3><div class="footer-links"><a href="study-materials.html">Study Materials</a><a href="notices.html">College Notices</a><a href="timetable.html">Class Timetable</a></div></div>
+  </div>
+  <div class="copyright">© 2026 SIEM Connect. All rights reserved.</div>
 </footer>
-
 </body>
 </html>
