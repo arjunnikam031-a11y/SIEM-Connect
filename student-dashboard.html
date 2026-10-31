@@ -1,82 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIEM Nashik | Student Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIEM-Connect | Student Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<style>
+:root{--navy:#102b50;--blue:#1f5b9b;--ink:#172b45;--muted:#64748b}
+body{margin:0;background:#f3f6fb;color:var(--ink);font-family:Arial,sans-serif}
+.topbar{background:var(--navy);color:white;padding:17px clamp(16px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:13px}.brand-mark{width:44px;height:44px;border-radius:12px;background:white;color:var(--navy);display:grid;place-items:center;font-weight:800}
+.brand h1{font-size:18px;margin:0 0 4px}.brand p{font-size:12px;margin:0;color:#d5e4f6}
+.top-links{display:flex;gap:17px;flex-wrap:wrap}.top-links a{color:#eaf2fc;text-decoration:none;font-size:14px}
+.welcome{background:linear-gradient(120deg,#173f73,#286aa8);color:white;padding:35px clamp(18px,5vw,58px)}
+.welcome .eyebrow{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#d5e7fb;font-weight:bold}
+.welcome h2{font-size:clamp(25px,4vw,36px);margin:10px 0}.welcome p{margin:0;color:#e4eef9;line-height:1.6}
+.page{max-width:1180px;margin:auto;padding:28px 18px 50px}.section-head{margin:4px 0 18px}
+.section-head h2{font-size:21px;margin:0;color:#173f73}.section-head p{margin:5px 0 0;color:var(--muted);font-size:13px}
+.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:17px}
+.service-card{background:white;border:1px solid #e1e9f2;border-radius:15px;padding:21px;box-shadow:0 5px 18px #102b500c;display:flex;flex-direction:column;min-height:205px}
+.service-icon{width:43px;height:43px;border-radius:12px;background:#eef4fb;display:grid;place-items:center;font-size:22px;margin-bottom:15px}
+.service-card h3{font-size:17px;margin:0 0 8px;color:#173f73}.service-card p{font-size:13px;line-height:1.55;color:var(--muted);margin:0 0 18px;flex:1}
+.service-card a{display:inline-flex;align-self:flex-start;background:var(--blue);color:white;text-decoration:none;padding:10px 14px;border-radius:8px;font-size:13px;font-weight:bold}
+.service-card a:hover{background:#123e70}.service-card .secondary{background:#edf3fa;color:#174779;margin-left:7px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}.logout-wrap{display:flex;justify-content:flex-end;margin-top:24px}
+.logout-wrap button{background:white;border:1px solid #cbd8e7;color:#173f73;border-radius:9px;padding:11px 17px;font-weight:bold;cursor:pointer}
+footer{text-align:center;padding:20px;color:#718096;font-size:12px;border-top:1px solid #e2e8f0;background:white}
+@media(max-width:560px){.topbar{align-items:flex-start}.top-links{gap:12px}.welcome{padding-top:27px;padding-bottom:27px}.service-grid{grid-template-columns:1fr}.service-card{min-height:unset}}
+</style>
 </head>
-
 <body data-role="student">
-    <header>
-        <h1>Sandip Foundation</h1>
-        <p>Sandip Institute of Engineering and Management, Nashik</p>
-        <h2>Student Dashboard</h2>
-        <p>Student Services and Information Portal</p>
-    </header>
-
-    <main class="container">
-
-        <section class="card">
-            <h2>📢 College Notices</h2>
-            <p>Check college announcements and updates.</p>
-            <a href="notices.html">View Notices</a>
-        </section>
-
-        <section class="card">
-            <h2>📅 Timetable</h2>
-            <p>Check class schedules and examination dates.</p>
-            <a href="timetable.html">View Timetable</a>
-        </section>
-
-        <section class="card">
-            <h2>📚 Study Materials</h2>
-            <p>Access subject notes and PDF materials.</p>
-            <a href="study-materials.html">Study Materials</a>
-        </section>
-
-        <section class="card">
-            <h2>🎓 Scholarship Information</h2>
-            <p>Find information about scholarships and student financial assistance.</p>
-            <a href="https://mahadbt.maharashtra.gov.in/" target="_blank" rel="noopener">
-                Visit MahaDBT
-            </a>
-        </section>
-
-        <section class="card">
-        <h2>📄 Bonafide Certificate</h2>
-        <p>Apply for a bonafide certificate using the student portal.</p>
-        <p>Fill in your details and submit your application.</p>
-        <a href="bonafide.html">Apply for Bonafide Certificate</a>
-        <br><br>
-<a href="bonafide-status.html">Check Bonafide Application Status</a>
-    </section>
-
-        <section class="card">
-            <h2>🗓️ Academic Calendar</h2>
-            <p>Check academic schedules, holidays, examination and important college dates.</p>
-            <a href="academic-calender.html">View Academic-Calender</a>
-        </section>
-
-        <section class="card">
-    <h2>👤 My Profile</h2>
-    <p>View your personal and academic details.</p>
-    <a href="my-profile.html">View My Profile</a>
+<header class="topbar">
+  <div class="brand"><div class="brand-mark">SI</div><div>
+    <h1>Sandip Institute of Engineering and Management</h1><p>SIEM-Connect · Student Services Portal</p>
+  </div></div>
+  <nav class="top-links"><a href="index.html">Home</a><a href="notices.html">Notices</a><a href="my-profile.html">My Profile</a></nav>
+</header>
+<section class="welcome"><div class="eyebrow">Student Portal</div>
+<h2>Welcome to your Dashboard</h2><p>Everything you need for college updates, academics and student services — all in one place.</p></section>
+<main class="page">
+<div class="section-head"><h2>Student Services</h2><p>Choose a service to continue.</p></div>
+<section class="service-grid">
+<article class="service-card"><div class="service-icon">📢</div><h3>College Notices</h3><p>Read the latest college announcements, circulars and important updates.</p><a href="notices.html">View Notices</a></article>
+<article class="service-card"><div class="service-icon">📅</div><h3>Class Timetable</h3><p>Check your class schedule and examination timetable.</p><a href="timetable.html">View Timetable</a></article>
+<article class="service-card"><div class="service-icon">📚</div><h3>Study Materials</h3><p>Access subject notes and learning resources shared through the portal.</p><a href="study-materials.html">Open Materials</a></article>
+<article class="service-card"><div class="service-icon">🎓</div><h3>Scholarship Information</h3><p>Visit the Maharashtra scholarship portal for schemes and application updates.</p><a href="https://mahadbt.maharashtra.gov.in/" target="_blank" rel="noopener noreferrer">Visit MahaDBT</a></article>
+<article class="service-card"><div class="service-icon">📄</div><h3>Bonafide Certificate</h3><p>Submit a bonafide certificate request and track your application status.</p><div class="actions"><a href="bonafide.html">Apply Now</a><a class="secondary" href="bonafide-status.html">Check Status</a></div></article>
+<article class="service-card"><div class="service-icon">🗓️</div><h3>Academic Calendar</h3><p>Keep track of academic schedules, holidays, examinations and key dates.</p><a href="academic-calender.html">View Calendar</a></article>
+<article class="service-card"><div class="service-icon">👤</div><h3>My Profile</h3><p>View your personal and academic profile information.</p><a href="my-profile.html">View Profile</a></article>
+<article class="service-card"><div class="service-icon">💬</div><h3>Student Complaint System</h3><p>Submit feedback or a complaint and check its current status.</p><div class="actions"><a href="feedback.html">Submit Complaint</a><a class="secondary" href="complaint-status.html">Check Status</a></div></article>
 </section>
-
-
-    <section class="card">
-    <h2>Student Complaint System</h2>
-    <p>Submit complaints related to college facilities and services.</p>
-    <a href="feedback.html">Submit Complaint</a>
-    <br><br>
-    <a href="complaint-status.html">Check Complaint Status</a>
-</section>
-<section class="card">
-            <button type="button" onclick="logout()">Logout</button>
-        </section>
+<div class="logout-wrap"><button type="button" onclick="logout()">Log Out</button></div>
 </main>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<footer>© SIEM-Connect · Sandip Institute of Engineering and Management</footer>
+<script src="script.js"></script>
+</body></html>
