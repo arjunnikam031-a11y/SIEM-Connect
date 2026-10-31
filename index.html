@@ -150,15 +150,39 @@ footer {
         font-size: 32px;
     }
 }
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand-mark {
+    background: white;
+    color: #102447;
+    font-weight: bold;
+    padding: 14px 10px;
+    border-radius: 10px;
+    font-size: 17px;
+}
+
+nav a {
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #55c2ff;
+}
 </style>
 </head>
 
 <body>
-
-<header>
+    <header>
     <div class="logo">
-        <h2>SIEM CONNECT</h2>
-        <p>Sandip Institute of Engineering and Management</p>
+        <div class="brand-mark">SIEM</div>
+        <div>
+            <h2>SIEM CONNECT</h2>
+            <p>Sandip Institute of Engineering and Management, Nashik</p>
+        </div>
     </div>
 
     <nav>
@@ -167,70 +191,3 @@ footer {
         <a href="admin-login.html">Admin Login</a>
     </nav>
 </header>
-
-<div class="hero">
-    <div class="hero-content">
-        <h1>Welcome to SIEM Connect</h1>
-        <p>
-            Your Digital College Campus Portal.
-            Access academic information, student services,
-            notices, study materials and career guidance
-            from one platform.
-        </p>
-
-        <a href="student-login.html" class="btn student">
-            Student Login
-        </a>
-
-        <a href="admin-login.html" class="btn admin">
-            Admin Login
-        </a>
-    </div>
-</div>
-
-<section>
-    <h2>Our Student Services</h2>
-    <p>Everything students need, available in one place.</p>
-
-    <div class="services">
-
-        <div class="card">
-            <h3>📚 Study Materials</h3>
-            <p>Access learning resources and academic materials.</p>
-        </div>
-
-        <div class="card">
-            <h3>📢 Notices</h3>
-            <p>Stay updated with important college announcements.</p>
-        </div>
-
-        <div class="card">
-            <h3>📅 Timetable</h3>
-            <p>View your class schedules and academic timetable.</p>
-        </div>
-
-        <div class="card">
-            <h3>📝 Student Services</h3>
-            <p>Access bonafide, complaints and other student services.</p>
-        </div>
-
-        <div class="card">
-            <h3>🎯 Career Guidance</h3>
-            <p>Explore skill development and career opportunities.</p>
-        </div>
-
-        <div class="card">
-            <h3>🎓 Academic Support</h3>
-            <p>Get important academic information in one place.</p>
-        </div>
-
-    </div>
-</section>
-
-<footer>
-    <p>© 2026 SIEM Connect | Sandip Institute of Engineering and Management</p>
-    <p>Designed for Students</p>
-</footer>
-
-</body>
-</html>
